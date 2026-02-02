@@ -37,7 +37,7 @@
             @isset($navGrouped)
             @foreach($navGrouped as $groupName => $navCategories)
              @endforeach
-            @endisset
+             @endisset
             <li class="relative group">
                 <button class="font-medium text-gray-800 hover:text-orange-500">{{ $groupName }}</button>
                 <ul class="absolute top-full left-0 hidden group-hover:block bg-white shadow-lg rounded-lg p-2 min-w-[150px]">

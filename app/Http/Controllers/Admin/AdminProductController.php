@@ -34,8 +34,8 @@ class AdminProductController extends Controller
         ]);
 
         $imageName = time().'.'.$request->image->extension();  
-        // Store in storage/app/public/products
-        $path = $request->image->storeAs('products', $imageName, 'public');
+        // Store directly in public/assets/images
+        $request->image->move(public_path('assets/images'), $imageName);
 
         // Find category name and group to fill 'category' and 'type' fields
         $category = Category::find($request->category_id);
@@ -96,7 +96,7 @@ class AdminProductController extends Controller
             // Delete old image if exists? (Optional, might verify path first)
             
             $imageName = time().'.'.$request->image->extension();  
-            $request->image->storeAs('products', $imageName, 'public');
+            $request->image->move(public_path('assets/images'), $imageName);
             $data['image'] = $imageName;
         }
 
